@@ -1,7 +1,11 @@
 ---
+import '../styles/global.css'
+
 const pageTitle = '与大野'
 const skills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Vue', 'React', 'Astro', 'Solid', 'Node', 'Next', 'Nuxt']
 const isHappy = true
+
+const skillColor = 'blue'
 ---
 
 <html lang="en">
@@ -11,6 +15,16 @@ const isHappy = true
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>About Me: {pageTitle}</title>
+    <style define:vars={{ skillColor }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <div>
@@ -24,7 +38,7 @@ const isHappy = true
     <p>
       我的技能有：
       <ul>
-        {skills.map(skill => <li>{skill}</li>)}
+        {skills.map(skill => <li class="skill">{skill}</li>)}
       </ul>
     </p>
     <p>
