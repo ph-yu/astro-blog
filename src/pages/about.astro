@@ -1,7 +1,5 @@
 ---
-import '../styles/global.css'
-import Navigation from '../components/Navigation.astro'
-import Footer from '../components/Footer.astro'
+import BaseLayout from '../layouts/base.astro'
 
 const pageTitle = '与大野'
 const skills = ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Vue', 'React', 'Astro', 'Solid', 'Node', 'Next', 'Nuxt']
@@ -10,39 +8,17 @@ const isHappy = true
 const skillColor = 'blue'
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>About Me: {pageTitle}</title>
-    <style define:vars={{ skillColor }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <Navigation />
-    <h1>大鹏一日同风起，扶摇直上九万里。</h1>
-    <h2>哈哈，我是 {pageTitle}</h2>
-    <p>我是一名前端工程师，现在正在学习astro。</p>
-    <p>
-      我的技能有：
-      <ul>
-        {skills.map(skill => <li class="skill">{skill}</li>)}
-      </ul>
-    </p>
-    <p>
-      Today:
-      {isHappy ? 'I am happy.' : 'I am sad.'}
-    </p>
-    <Footer />
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h4>大鹏一日同风起，扶摇直上九万里。</h4>
+  <p>我是一名前端工程师，现在正在学习astro。</p>
+  <p>
+    我的技能有：
+    <ul>
+      {skills.map(skill => <li class="skill">{skill}</li>)}
+    </ul>
+  </p>
+  <p>
+    Today:
+    {isHappy ? 'I am happy.' : 'I am sad.'}
+  </p>
+</BaseLayout>
